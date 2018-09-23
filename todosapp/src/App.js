@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 import './App.css';
 
-import InputField from './InputField';
 
 import AddButton from './addbutton';
 import ShowItems from './showItems';
@@ -19,9 +21,13 @@ class App extends Component {
     const {name, value} = event.target;
     this.setState({[name]: value})
   }
-  additem = () =>{
+  additem = (event) =>{
+    event.preventDefault();
     const copyallItems = this.state.allItems.slice(0);
-    if(this.state.editItem == null){
+    if(this.state.todosAdd == ''){
+      return 
+    }
+    else if(this.state.editItem == null){
     copyallItems.push(this.state.todosAdd);
     }
     else{ copyallItems[this.state.editItem] = this.state.todosAdd;
@@ -34,7 +40,6 @@ class App extends Component {
   }
   
   edititem = (index) => {
-    console.log(index);
     this.setState({
       todosAdd : this.state.allItems[index],
       editItem : index
@@ -56,11 +61,20 @@ class App extends Component {
     
     return (
       <div className="App">
-      <div className="heading">todos</div>
-      <form action="JavaScript:void(0)">
-      <InputField type="text" name="todosAdd" id="todosAdd" whenChange={this.whenchange} value={this.state.todosAdd}/>
+      <div className="heading">To-Do App</div>
+      <form onSubmit={this.additem}>
+      <TextField
+          id="standard-name"
+          label="Add Item"
+          value={this.state.todosAdd}
+          onChange={this.whenchange}
+          margin="normal"
+          name="todosAdd"
+          className="checkfield"
+        />
+      
       <span className="space">
-      <AddButton text="Add" className="btn btn-light" addItem={this.additem}/>
+      <AddButton text="Add" className="btn btn-info"/>
       </span>
       </form>
       <table>

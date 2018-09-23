@@ -3,5 +3,6 @@
 }
 table{margin: 0 auto; margin-top: 45px; width: 60%}
 .bigtext{width: 53%; text-align: start;}
-.App{width: 40%; margin: 5% auto; text-align: center;}
-.heading{font-size: 110px;}
+.App{width: 40%; margin: 2% auto; text-align: center;}
+.heading{font-size: 70px; color: rgb(84, 84, 161);}
+
