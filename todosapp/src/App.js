@@ -22,6 +22,7 @@ class App extends Component {
     this.setState({[name]: value})
   }
   additem = (event) =>{
+    
     event.preventDefault();
     const copyallItems = this.state.allItems.slice(0);
     if(this.state.todosAdd == ''){
@@ -34,12 +35,14 @@ class App extends Component {
     }
     this.setState({
       allItems: copyallItems,
-      todosAdd: ""
+      todosAdd: "", 
+      editItem: null
     })
-
+    
   }
   
   edititem = (index) => {
+    
     this.setState({
       todosAdd : this.state.allItems[index],
       editItem : index
@@ -52,8 +55,18 @@ class App extends Component {
 
 
   delitem = (index) => {
-    this.state.allItems.splice(index,1);
-    this.setState({allItems: this.state.allItems})
+    const temparr = this.state.allItems.slice(0);
+
+    temparr.splice(index,1);
+    
+    this.setState({allItems: temparr})
+    if(this.state.editItem > index){
+         this.setState({editItem: --this.state.editItem})
+    } 
+    if(this.state.todosAdd == this.state.allItems[index]){
+      this.setState({todosAdd: '', editItem: null})
+    }
+    
     
     
   }
@@ -78,13 +91,7 @@ class App extends Component {
       </span>
       </form>
       <table>
-      <tbody>
-        {
-          this.state.allItems.map((item, index) =>{
-            return <ShowItems key={index} text={item} editItem={this.edititem} delItem={this.delitem} id={index} num={index+1}/>
-          })
-        }
-      </tbody>
+      <ShowItems allItems={this.state.allItems} edititem={this.edititem} delitem={this.delitem} />
       </table>
       </div>
     );
