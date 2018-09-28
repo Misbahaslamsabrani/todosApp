@@ -25,7 +25,7 @@ class App extends Component {
     
     event.preventDefault();
     const copyallItems = this.state.allItems.slice(0);
-    if(this.state.todosAdd == ''){
+    if(this.state.todosAdd === ''){
       return 
     }
     else if(this.state.editItem == null){
@@ -63,7 +63,7 @@ class App extends Component {
     if(this.state.editItem > index){
          this.setState({editItem: --this.state.editItem})
     } 
-    if(this.state.todosAdd == this.state.allItems[index]){
+    if(this.state.todosAdd === this.state.allItems[index]){
       this.setState({todosAdd: '', editItem: null})
     }
     
@@ -90,9 +90,11 @@ class App extends Component {
       <AddButton text="Add" className="btn btn-info"/>
       </span>
       </form>
-      <table className="table table1">
-      <ShowItems allItems={this.state.allItems} edititem={this.edititem} delitem={this.delitem} />
-      </table>
+      {
+        this.state.allItems.length > 0 ? (<table className="table table1">
+        <ShowItems allItems={this.state.allItems} edititem={this.edititem} delitem={this.delitem} />
+        </table>) : <div className="notodo"> "You have no to-do in the list" </div>
+      }
       </div>
     );
   }

@@ -2,8 +2,10 @@
     margin-left: 15px;
 }
 
- .table1{margin-top: 5%;text-align: left}
+ .table1{margin: 0 auto; margin-top: 4%;text-align: left; width: 80%; }
+ .buttons{text-align: right}
  
 .App{margin: 2% auto; text-align: center;}
 .heading{ font-size: 425%; color: rgb(84, 84, 161);}
+.notodo{margin: 3%; font-size: 140%; color: rgb(43, 43, 99)}
 

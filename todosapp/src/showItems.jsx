@@ -7,11 +7,9 @@ const ShowItems = (props) => {
                 return (<tr key={index} className="table-info">
                     <td>{index+1}.</td>
                     <td>{arr}</td>
-                    <td>
+                    <td className="buttons"> 
                     <button className="btn btn-light" onClick={() => {edititem(index) }}>
-                    Edit</button>
-                    </td>
-                    <td>
+                    Edit</button> &nbsp;
                     <button className="btn btn-light" onClick={() => {delitem(index)}}>
                     Done</button>
                     </td>
