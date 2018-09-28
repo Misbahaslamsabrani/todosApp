@@ -1,8 +1,9 @@
 .space{
     margin-left: 15px;
 }
-table{margin: 0 auto; margin-top: 45px; width: 60%}
-.bigtext{width: 53%; text-align: start;}
-.App{width: 40%; margin: 2% auto; text-align: center;}
-.heading{font-size: 70px; color: rgb(84, 84, 161);}
+
+ .table1{margin-top: 5%;text-align: left}
+ 
+.App{margin: 2% auto; text-align: center;}
+.heading{ font-size: 425%; color: rgb(84, 84, 161);}
 

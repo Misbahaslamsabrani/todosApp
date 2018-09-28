@@ -85,12 +85,12 @@ class App extends Component {
           name="todosAdd"
           className="checkfield"
         />
-      
+       
       <span className="space">
       <AddButton text="Add" className="btn btn-info"/>
       </span>
       </form>
-      <table>
+      <table className="table table1">
       <ShowItems allItems={this.state.allItems} edititem={this.edititem} delitem={this.delitem} />
       </table>
       </div>

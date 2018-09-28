@@ -4,11 +4,11 @@ const ShowItems = (props) => {
 
         return <tbody>
             {allItems.map((arr, index) => {
-                return (<tr key={index}>
+                return (<tr key={index} className="table-info">
                     <td>{index+1}.</td>
-                    <td className="bigtext">{arr}</td>
+                    <td>{arr}</td>
                     <td>
-                    <button className="btn btn-success" onClick={() => {edititem(index) }}>
+                    <button className="btn btn-light" onClick={() => {edititem(index) }}>
                     Edit</button>
                     </td>
                     <td>
